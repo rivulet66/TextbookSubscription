@@ -45,7 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TextbookManage.Infrastructure\TextbookSubscription.Infrastructure.csproj">
+    <ProjectReference Include="..\TextbookSubscription.Infrastructure\TextbookSubscription.Infrastructure.csproj">
       <Project>{e901854e-a721-4e21-98e9-af2c963cf07b}</Project>
       <Name>TextbookSubscription.Infrastructure</Name>
     </ProjectReference>

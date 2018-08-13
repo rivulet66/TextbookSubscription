@@ -8,53 +8,66 @@
     /// <summary>
     /// 规定所有接口仓库的基础方法
     /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
-    public interface IRepository<TEntity>
-        where TEntity : class
+    /// <typeparam name="TAggregateRoot">聚合根类型</typeparam>
+    public interface IRepository<TAggregateRoot> : ISql
+        where TAggregateRoot : class, IAggregateRoot
     {
         /// <summary>
-        /// 根据标识获得实体
+        /// 仓库上下文
         /// </summary>
-        /// <param name="Id">实体对象的Id</param>
-        /// <returns>单一实体对象</returns>
-        TEntity Get(string Id);
+        IRepositoryDbContext Context { get; }
+
+        /// <summary>
+        /// 单对象查询
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        TAggregateRoot Single(Expression<Func<TAggregateRoot, bool>> expression);
+
+        /// <summary>
+        /// 首个对象查询
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        TAggregateRoot First(Expression<Func<TAggregateRoot, bool>> expression);
 
         /// <summary>
         /// 获得全部实体
         /// </summary>
         /// <returns>全部实体</returns>
-        IEnumerable<TEntity> GetAll();
+        IEnumerable<TAggregateRoot> GetAll();
 
         /// <summary>
-        /// 根据谓词返回实体对象
-        /// </summary>
-        /// <param name="predicate">查询条件</param>
-        /// <returns>实体对象集合</returns>
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
-
-        /// <summary>
-        /// 增加单个对象
+        /// 添加
         /// </summary>
         /// <param name="entity">对象实体</param>
-        void Add(TEntity entity);
+        void Add(TAggregateRoot entity);
 
         /// <summary>
-        /// 增加对象集合
-        /// </summary>
-        /// <param name="entities">对象实体集合</param>
-        void Add(IEnumerable<TEntity> entities);
-
-        /// <summary>
-        /// 删除对象实体
+        /// 删除
         /// </summary>
         /// <param name="entity">对象实体</param>
-        void Remove(TEntity entity);
+        void Remove(TAggregateRoot entity);
 
         /// <summary>
-        /// 删除对象集合
+        /// 批量删除
         /// </summary>
         /// <param name="entities">对象实体集合</param>
-        void Remove(IEnumerable<TEntity> entities);
+        void Remove(Expression<Func<TAggregateRoot, bool>> expression);
+
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="entity"></param>
+        void Modify(TAggregateRoot entity);
+
+        /// <summary>
+        /// 批量修改
+        /// </summary>
+        /// <param name="filterExpression"></param>
+        /// <param name="updateExpression"></param>
+        void Modify(Expression<Func<TAggregateRoot, bool>> filterExpression, 
+            Expression<Func<TAggregateRoot, TAggregateRoot>> updateExpression);
 
     }
 }

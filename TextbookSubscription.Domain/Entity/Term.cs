@@ -2,10 +2,10 @@
 {
     using System;
 
-    public class Term
+    public class Term : AggregateRoot
     {
         /// <summary>
-        /// 学年学期编号
+        /// 学期编号
         /// </summary>
         public long TermNum { get; set; }
 

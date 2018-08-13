@@ -120,3 +120,29 @@ System.InvalidOperationException: The 'IsSelfCompile' property on 'Textbook' cou
    在 TextbookManage.Repositories.EntityFramework.EntityFrameworkRepository`1.Find(Expression`1 expression) 位置 D:\Repos\TextbookManage\TextbookManage.Repositories\EntityFramework\EntityFrameworkRepository.cs:行号 42
    在 TextbookManage.Applications.Impl.TextbookAppl.GetByName(String textbookName, String isbn) 位置 D:\Repos\TextbookManage\TextbookManage.Application\Impl\TextbookAppl.cs:行号 163
    在 DynamicModule.ns.Wrapped_ITextbookAppl_b579d312a2874d4fabf45eb0343a3ea3.<GetByName_DelegateImplementation>__5(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)
+
+2018-08-12 11:40:14,844 [15] ERROR ExceptionLogger - Exception caught
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Guid -> Int32
+System.Guid -> System.Int32
+
+Destination path:
+TermView.TermID.TermID
+
+Source value:
+00000000-0000-0000-0000-000000000000
+   在 AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   在 AutoMapper.Mappers.TypeMapObjectMapperRegistry.PropertyMapMappingStrategy.MapPropertyValue(ResolutionContext context, IMappingEngineRunner mapper, Object mappedObject, PropertyMap propertyMap)
+   在 AutoMapper.Mappers.TypeMapObjectMapperRegistry.PropertyMapMappingStrategy.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   在 AutoMapper.Mappers.TypeMapMapper.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   在 AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   在 AutoMapper.MappingEngine.Map(Object source, Type sourceType, Type destinationType, Action`1 opts)
+   在 AutoMapper.MappingEngine.Map[TDestination](Object source, Action`1 opts)
+   在 AutoMapper.MappingEngine.Map[TDestination](Object source)
+   在 AutoMapper.Mapper.Map[TDestination](Object source)
+   在 TextbookSubscription.Application.DTOAdapter.AutoMapperTypeAdapter.Adapt[TTarget](Object source) 位置 D:\GitRepository\TextbookSubscription\TextbookSubscription.Application\DTOAdapter\AutoMapperTypeAdapter.cs:行号 37
+   在 TextbookSubscription.Application.DTOAdapter.AutoMapperTypeAdapter.Adapt[TTarget](IEnumerable`1 source) 位置 D:\GitRepository\TextbookSubscription\TextbookSubscription.Application\DTOAdapter\AutoMapperTypeAdapter.cs:行号 78
+   在 TextbookSubscription.Application.TermAppl.GetAll() 位置 D:\GitRepository\TextbookSubscription\TextbookSubscription.Application\TermAppl.cs:行号 21
+   在 DynamicModule.ns.Wrapped_ITermAppl_adac006f0fdb446c8783f687c80fc728.<GetAll_DelegateImplementation>__0(IMethodInvocation inputs, GetNextInterceptionBehaviorDelegate getNext)

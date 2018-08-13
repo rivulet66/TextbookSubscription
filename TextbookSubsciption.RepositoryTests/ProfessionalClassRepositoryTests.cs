@@ -6,22 +6,17 @@ using TextbookSubscription.Domain;
 namespace TextbookSubscription.RepositoryTests
 {
     [TestClass]
-    public class TermRepositoryTests
+    public class ProfessionalClassRepositoryTests
     {
-
         public TestContext TestContext { get; set; }
 
         [TestMethod]
-        public void RetriveAllTerm()
+        public void RetriveAllClass()
         {
-            TermRepository rep = new TermRepository(new EFRepositoryDbContext());
-            //SELECT COUNT(*) FROM Term = 16
-            int totalCount = 16;
+            ProfessionalClassRepository rep = new ProfessionalClassRepository(new EFRepositoryDbContext());
+            //SELECT COUNT(*) FROM ProfessionalClass = 1868
+            int totalCount = 1868;
             var termList = rep.GetAll();
-            foreach (var t in termList)
-            {
-                TestContext.WriteLine(t.TermName);
-            }
             Assert.AreEqual(totalCount, termList.Count());
         }
     }

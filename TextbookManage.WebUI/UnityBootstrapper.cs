@@ -10,6 +10,7 @@ using TextbookSubscription.Repository;
 using TextbookSubscription.IApplication;
 using TextbookSubscription.Application;
 using TextbookSubscription.Infrastructure.InterceptionBehaviors;
+using TextbookSubscription.Domain;
 
 namespace TextbookManage.WebUI
 {
@@ -30,7 +31,7 @@ namespace TextbookManage.WebUI
                 //日志记录器
                 .RegisterType<ILogger, Log4netLogger>(LoggerName.Logger.ToString(), new InjectionConstructor(LoggerName.Logger.ToString()));
             //DbContext
-
+            container.RegisterType<IRepositoryDbContext, EFRepositoryDbContext>(new PerResolveLifetimeManager());
             //Repository
             container
                 .RegisterType<ITermRepository, TermRepository>();

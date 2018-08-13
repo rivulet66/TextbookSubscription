@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using CPMis.Web.WebControls;
 using Telerik.Web.UI;
 using TextbookSubscription.ViewModels;
-using TextbookSubscription.Application;
+using TextbookSubscription.IApplication;
+using TextbookSubscription.Infrastructure.ServiceLocators;
 
 namespace TextbookManage.WebUI.Tb_Maintain.Tb_Maintain_1
 {
     public partial class TextbookImport : System.Web.UI.Page
     {
-        private TermAppl _appl = new TermAppl();
+        private ITermAppl _appl = ServiceLocator.Current.GetInstance<ITermAppl>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

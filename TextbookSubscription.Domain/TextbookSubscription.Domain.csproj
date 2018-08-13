@@ -49,9 +49,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AggregateRoot.cs" />
+    <Compile Include="EFRepositoryDbContext.cs" />
+    <Compile Include="EntityMapping\ProfessionalClassMap.cs" />
     <Compile Include="EntityMapping\TermMap.cs" />
+    <Compile Include="Entity\ProfessionalClass.cs" />
+    <Compile Include="IAggregateRoot.cs" />
+    <Compile Include="IEFRepositoryDbContext.cs" />
+    <Compile Include="IEntity.cs" />
+    <Compile Include="IRepositories\IProfessionalClassRepository.cs" />
     <Compile Include="IRepositories\IRepository.cs" />
     <Compile Include="IRepositories\ITermRepository.cs" />
+    <Compile Include="IRepositoryDbContext.cs" />
+    <Compile Include="ISql.cs" />
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="RepositoryDbContext.cs" />
     <Compile Include="TbMISDbContext.cs" />
     <Compile Include="Entity\Term.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,7 +76,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TextbookManage.Infrastructure\TextbookSubscription.Infrastructure.csproj">
+    <ProjectReference Include="..\TextbookSubscription.Infrastructure\TextbookSubscription.Infrastructure.csproj">
       <Project>{e901854e-a721-4e21-98e9-af2c963cf07b}</Project>
       <Name>TextbookSubscription.Infrastructure</Name>
     </ProjectReference>

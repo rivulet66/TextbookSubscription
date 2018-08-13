@@ -14,9 +14,11 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new TermMap());
+            modelBuilder.Configurations.Add(new ProfessionalClassMap());
         }
 
         public virtual DbSet<Term> Term { get; set; }
+        public virtual DbSet<ProfessionalClass> ProfessionalClass {get;set;}
     }
 
 }

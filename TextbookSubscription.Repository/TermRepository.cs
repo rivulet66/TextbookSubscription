@@ -1,12 +1,12 @@
 ﻿namespace TextbookSubscription.Repository
 {
     using TextbookSubscription.Domain.Entity;
-    using TextbookSubscription.Domain.EFDbContext;
+    using TextbookSubscription.Domain;
     using TextbookSubscription.Domain.IRepositories;
 
-    public class TermRepository : Repository<Term>, ITermRepository
+    public class TermRepository : EFRepository<Term>, ITermRepository
     {
-        public TermRepository(TbMISDbContext dbContext)
+        public TermRepository(IRepositoryDbContext dbContext)
             :base(dbContext)
         {
 

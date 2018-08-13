@@ -17,8 +17,6 @@ namespace TextbookSubscription.Infrastructure.ServiceLocators
         #region 私有变量
 
         private readonly IUnityContainer _container;
-
-        private static readonly ServiceLocator _instance = new ServiceLocator();
         #endregion
 
         #region IDisposable
@@ -32,8 +30,8 @@ namespace TextbookSubscription.Infrastructure.ServiceLocators
         {
             if (disposing)
             {
-                if (_instance != null)
-                    _instance.Dispose();
+                if (Current != null)
+                    Current.Dispose();
             }
 
         }
@@ -46,11 +44,6 @@ namespace TextbookSubscription.Infrastructure.ServiceLocators
         #region 构造函数
         private ServiceLocator()
         {
-            //读取配置文件，如app.config，web.config，向Unity容器注册对象
-            //UnityConfigurationSection section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
-            //_container = new UnityContainer();
-            //section.Configure(_container);
-
             //从外部类，向Unity容器注册对象
             _container = new UnityContainer();
 
@@ -73,13 +66,7 @@ namespace TextbookSubscription.Infrastructure.ServiceLocators
 
         #region 公共属性
 
-        public static ServiceLocator Current
-        {
-            get
-            {
-                return _instance;
-            }
-        }
+        public static ServiceLocator Current { get; } = new ServiceLocator();
         #endregion
 
         #region 实现接口

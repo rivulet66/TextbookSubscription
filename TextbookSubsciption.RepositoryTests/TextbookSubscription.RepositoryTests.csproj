@@ -55,6 +55,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProfessionalClassRepositoryTests.cs" />
     <Compile Include="TermRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,13 +64,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TexrtbookSubscription.Repository\TextbookSubscription.Repository.csproj">
-      <Project>{e47fcf34-a2e6-4c3f-a190-89cb80fb2a1f}</Project>
-      <Name>TextbookSubscription.Repository</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TextbookSubscription.Domain\TextbookSubscription.Domain.csproj">
       <Project>{c3468b9d-0b6a-4a03-a60e-c9be1589bcdd}</Project>
       <Name>TextbookSubscription.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookSubscription.Infrastructure\TextbookSubscription.Infrastructure.csproj">
+      <Project>{E901854E-A721-4E21-98E9-AF2C963CF07B}</Project>
+      <Name>TextbookSubscription.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextbookSubscription.Repository\TextbookSubscription.Repository.csproj">
+      <Project>{e47fcf34-a2e6-4c3f-a190-89cb80fb2a1f}</Project>
+      <Name>TextbookSubscription.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
