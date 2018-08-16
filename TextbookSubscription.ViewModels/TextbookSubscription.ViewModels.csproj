@@ -56,6 +56,7 @@
     <Compile Include="QueryTextbookView.cs" />
     <Compile Include="SchoolView.cs" />
     <Compile Include="ImportStudentDeclarationView.cs" />
+    <Compile Include="SubscriptionPlanView.cs" />
     <Compile Include="TermView.cs" />
     <Compile Include="BaseViewModel.cs" />
   </ItemGroup>
